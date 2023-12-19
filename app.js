@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!("serviceWorker" in navigator)) return;
 
   const sw = await navigator.serviceWorker
-    .register("./sw.js", { scope: "/mine/public/" })
+    .register("./sw.js", { scope: "/" })
     .catch((e) =>
       console.log(`Could not register service worker due to ${e.message}`)
     );
