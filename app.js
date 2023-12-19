@@ -42,16 +42,19 @@ const subscribe = async () => {
 
   const push = JSON.parse(JSON.stringify(rawPushResponse));
 
-  const fetchResponse = await fetch("http://localhost:5000/subscribe", {
-    body: JSON.stringify({
-      email: emailInput?.value,
-      ...push,
-    }),
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-  }).catch((e) =>
+  const fetchResponse = await fetch(
+    "https://p-web-notify.onrender.com/subscribe",
+    {
+      body: JSON.stringify({
+        email: emailInput?.value,
+        ...push,
+      }),
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+    }
+  ).catch((e) =>
     console.error(`Could not complete request due to ${e.message}`)
   );
 
